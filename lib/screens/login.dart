@@ -21,41 +21,92 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: azulUdec,
       body: Column(
         children: [
-          Image.asset("assets/images/login_image.png"),
-          Container(height: 4,color: Colors.black,),
           Container(
+            width: screenWidth,
+            height: (screenHeight/9)*4,
+            child: Image.asset(
+              "assets/images/login_image.png",
+              fit: BoxFit.fill,),
+            decoration: BoxDecoration(
+              color: amarilloUdec,
+            ),
+          ),
+          Container(height: 4,color: Colors.black,),
+          Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 10.0, right: 40.0, left: 40.0,top: 10.0),
+              padding: const EdgeInsets.only(bottom: 10.0, right: 40.0, left: 40.0,top: 20.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Title(
                     color: Colors.white, 
-                    child: Text(
+                    child: const Text(
                       "Ingresar",
                       style: TextStyle(
-                        color: Colors.white))),
-                  TextField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
+                        fontSize: 20.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                        )
+                      )
                     ),
+                  Column(
+                    children: [
+                       Title(
+                          color: Colors.white, 
+                          child: const Text(
+                            "Usuario",
+                            style: TextStyle(
+                            fontSize: 18.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.normal,
+                            )
+                          )
+                        ),
+                      TextField(
+                        controller: _emailController,
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 16.0),
-                  TextField(
-                    controller: _passwordController,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                    ),
-                    obscureText: true,
+                  const SizedBox(height: 16.0),
+                  Column(
+                    children: [
+                      Title(
+                          color: Colors.white, 
+                          child: const Text(
+                            "Contraseña",
+                            style: TextStyle(
+                            fontSize: 18.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.normal,
+                            )
+                          )
+                      ),
+                      TextField(
+                        controller: _passwordController,
+                        decoration: InputDecoration(
+                        ),
+                        obscureText: true,
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 16.0),
-                  ElevatedButton(
-                    child: Text('Aceptar'),
+                  const SizedBox(height: 16.0),
+                  MaterialButton(
+                    height: 80,   
+                    minWidth: 1000,
+                    color: naranjaUdec, // Establecer el color de fondo
+                    textColor: Colors.white, // Establecer el color del texto
+                    child: const Text(
+                      'Aceptar',
+                      style: TextStyle(
+                        color: Colors.white
+                        ),
+                      ),
                     onPressed: () {
                       String email = _emailController.text;
                       String password = _passwordController.text;
@@ -63,6 +114,13 @@ class _LoginPageState extends State<LoginPage> {
                       print('Email: $email\nPassword: $password');
                     },
                   ),
+                  Row(
+                    children: [
+                        Text("Estacionamientos",style: TextStyle(color: Colors.white),),
+                        Spacer(),
+                        Text("Fábrica de Software",style: TextStyle(color: Colors.white),)
+                    ],
+                  )
                 ],
               ),
             ),
