@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextField(
                         controller: _passwordController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                         ),
                         obscureText: true,
                       ),
@@ -114,11 +114,16 @@ class _LoginPageState extends State<LoginPage> {
                       print('Email: $email\nPassword: $password');
                     },
                   ),
-                  Row(
+                  const Row(
                     children: [
                         Text("Estacionamientos",style: TextStyle(color: Colors.white),),
                         Spacer(),
-                        Text("Fábrica de Software",style: TextStyle(color: Colors.white),)
+                        Text(
+                          "Fábrica de Software",
+                          style: TextStyle(
+                            color: Colors.white
+                          ),
+                        )
                     ],
                   )
                 ],
