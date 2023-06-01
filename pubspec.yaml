@@ -25,6 +25,8 @@ flutter:
     - assets/icons/logoinicio.png
     - assets/images/login_image.png
     - assets/images/estacion_verde_disponible.png
+    - assets/images/
+    - assets/icons/
 
 flutter_native_splash:
   # image: "assets/icons/logoinicio.png"

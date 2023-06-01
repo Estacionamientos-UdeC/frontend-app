@@ -23,7 +23,27 @@ class _MenuEstacionamientosState extends State<MenuEstacionamientos> {
     return Scaffold(
       backgroundColor: azulUdec,
       appBar: AppBar(
-        title: const Text('Estacionaminetos Universidad de Concepcion'),
+        title: const Center(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                 Text('Estacionaminetos',
+                  style: TextStyle(
+                     color: Colors.white,
+                  ),
+                ),
+                 Text('Universidad de Concepción',
+                  style: TextStyle(
+                     color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         toolbarHeight: screenHeight/6,
         backgroundColor: naranjaUdec,
         shape: RoundedRectangleBorder(
