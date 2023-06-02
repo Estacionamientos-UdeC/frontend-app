@@ -23,6 +23,7 @@ class _MenuEstacionamientosState extends State<MenuEstacionamientos> {
     return Scaffold(
       backgroundColor: azulUdec,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Center(
           child: FittedBox(
             fit: BoxFit.scaleDown,

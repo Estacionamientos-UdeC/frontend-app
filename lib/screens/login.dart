@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_app/screens/menu_estacionamientos.dart';
 import 'package:frontend_app/utils/colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -30,12 +31,12 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             width: screenWidth,
             height: (screenHeight/9)*4,
-            child: Image.asset(
-              "assets/images/login_image.png",
-              fit: BoxFit.fill,),
             decoration: BoxDecoration(
               color: amarilloUdec,
             ),
+            child: Image.asset(
+              "assets/images/login_image.png",
+              fit: BoxFit.fill,),
           ),
           Container(height: 4,color: Colors.black,),
           Expanded(
@@ -49,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: const Text(
                       "Ingresar",
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 24.0,
                         color: Colors.white,
                         fontWeight: FontWeight.normal,
                         )
@@ -62,14 +63,25 @@ class _LoginPageState extends State<LoginPage> {
                           child: const Text(
                             "Usuario",
                             style: TextStyle(
-                            fontSize: 18.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.normal,
+                            fontSize: 18.0, 
+                            color: Color.fromARGB(215, 212, 212, 212),
+                            fontWeight: FontWeight.bold,
                             )
                           )
                         ),
-                      TextField(
-                        controller: _emailController,
+                      Container(
+                        height: 40,
+                        child: TextField(
+                          controller: _emailController,
+                              style: TextStyle(
+                                  color: Colors.white, // Color de la letra deseado
+                                ),
+                                decoration: InputDecoration(
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white), // Color de la línea de borde al estar seleccionado
+                                ),
+                              ),
+                        ),
                       ),
                     ],
                   ),
@@ -82,16 +94,25 @@ class _LoginPageState extends State<LoginPage> {
                             "Contraseña",
                             style: TextStyle(
                             fontSize: 18.0,
-                            color: Colors.white,
+                            color: Color.fromARGB(215, 212, 212, 212),
                             fontWeight: FontWeight.normal,
                             )
                           )
                       ),
-                      TextField(
-                        controller: _passwordController,
-                        decoration: const InputDecoration(
+                      Container(
+                        height: 40,
+                        child: TextField(
+                          controller: _passwordController,
+                          style: TextStyle(
+                            color: Colors.white, // Color de la letra deseado
+                          ),
+                          decoration: InputDecoration(
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white), // Color de la línea de borde al estar seleccionado
+                                ),
+                              ),
+                          obscureText: true,
                         ),
-                        obscureText: true,
                       ),
                     ],
                   ),
@@ -110,22 +131,34 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       String email = _emailController.text;
                       String password = _passwordController.text;
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MenuEstacionamientos()),
+                      );
                       // Aquí puedes agregar la lógica de autenticación y redireccionar al usuario si los datos son válidos.
                       print('Email: $email\nPassword: $password');
                     },
                   ),
+                  const SizedBox(
+                    height: 25,
+                  ),
                   const Row(
                     children: [
-                        Text("Estacionamientos",style: TextStyle(color: Colors.white),),
+                        Text("Estacionamientos",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white),
+                        ),
                         Spacer(),
                         Text(
                           "Fábrica de Software",
                           style: TextStyle(
+                            fontSize: 14,
                             color: Colors.white
                           ),
                         )
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

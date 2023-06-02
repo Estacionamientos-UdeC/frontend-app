@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:frontend_app/utils/colors.dart';
 
 class CardEstacion extends StatelessWidget {
@@ -68,11 +69,27 @@ class CardEstacion extends StatelessWidget {
                         ),
                     ),
                   ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Stack(
                     children: [
-                      Icon(Icons.circle,color: rojoIntenso,),
-                      Icon(Icons.star_border_outlined,color: amarilloIntenso,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(bottom: 0.0, right: 0.0, left: 8.0,top: 8.0),
+                            child: Icon(
+                              Icons.circle,
+                              color: rojoIntenso,
+                              size: 36),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(bottom: 0.0, right: 8.0, left: 8.0,top: 8.0),
+                            child: Icon(
+                              Icons.star,
+                              color: amarilloIntenso,
+                              size: 40),
+                          ),
+                        ],
+                      ),
                     ],
                   )
                 ],
