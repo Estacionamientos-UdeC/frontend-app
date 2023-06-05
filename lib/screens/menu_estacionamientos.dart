@@ -11,10 +11,10 @@ class MenuEstacionamientos extends StatefulWidget {
 
 class _MenuEstacionamientosState extends State<MenuEstacionamientos> {
   final List<CardEstacion> cards = [
-    CardEstacion(nombre:'Estacionamiento N.º 1 Pinacoteca',ubicacion:'Lorenzo Arenas 123456',disponibilidad:'verde',favorito: true),
-    CardEstacion(nombre:'Estacionamiento N.º 2 Pinacoteca',ubicacion:'Lorenzo Arenas 123457',disponibilidad:'amarillo',favorito: false),
-    CardEstacion(nombre:'Estacionamiento N.º 3 Pinacoteca',ubicacion:'Lorenzo Arenas 123458',disponibilidad:'rojo',favorito: true),
-    CardEstacion(nombre:'Estacionamiento N.º 4 Pinacoteca',ubicacion:'Lorenzo Arenas 123459',disponibilidad:'gris',favorito: false),
+    CardEstacion(nombre:'Estacionamiento N.º 1 Pinacoteca',ubicacion:'Lorenzo Arenas 123456',disponibilidad:'bajo',favorito: true),
+    CardEstacion(nombre:'Estacionamiento N.º 2 Pinacoteca',ubicacion:'Lorenzo Arenas 123457',disponibilidad:'lleno',favorito: false),
+    CardEstacion(nombre:'Estacionamiento N.º 3 Pinacoteca',ubicacion:'Lorenzo Arenas 123458',disponibilidad:'no disponible',favorito: true),
+    CardEstacion(nombre:'Estacionamiento N.º 4 Pinacoteca',ubicacion:'Lorenzo Arenas 123459',disponibilidad:'medio',favorito: false),
   ];
   @override
   Widget build(BuildContext context) {

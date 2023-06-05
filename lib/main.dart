@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_app/screens/cantidad.dart';
 import 'package:frontend_app/screens/login.dart';
-import 'package:frontend_app/screens/menu_estacionamientos.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget { 
   const MyApp({super.key});
 
   @override
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const MenuEstacionamientos(),
-      home: const LoginPage(),
+      home: const Cantidad(),
     );
   }
 }

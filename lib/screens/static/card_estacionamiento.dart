@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:frontend_app/utils/colors.dart';
 
 class CardEstacion extends StatelessWidget {
@@ -64,7 +63,7 @@ class CardEstacion extends StatelessWidget {
                         topRight: Radius.circular(25),
                       ),
                       child: Image.asset(
-                      "assets/images/vacio.jpg",
+                        getImagenByDisponibilidad(disponibilidad),
                         fit: BoxFit.cover,
                         ),
                     ),
@@ -78,15 +77,21 @@ class CardEstacion extends StatelessWidget {
                             padding: const EdgeInsets.only(bottom: 0.0, right: 0.0, left: 8.0,top: 8.0),
                             child: Icon(
                               Icons.circle,
-                              color: rojoIntenso,
+                              color:getColorByDisponibilidad(disponibilidad),
                               size: 36),
                           ),
                           Container(
                             padding: const EdgeInsets.only(bottom: 0.0, right: 8.0, left: 8.0,top: 8.0),
-                            child: Icon(
-                              Icons.star,
-                              color: amarilloIntenso,
-                              size: 40),
+                            child: favorito 
+                              ? const Icon(
+                                  Icons.star,
+                                  color: amarilloIntenso,
+                                  size: 40)
+                              : const Icon(
+                                  Icons.star_border,
+                                  color: Colors.white,
+                                  size: 40,
+                                ),
                           ),
                         ],
                       ),
@@ -130,5 +135,31 @@ class CardEstacion extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+Color getColorByDisponibilidad(String disponibilidad) {
+  switch (disponibilidad) {
+    case 'bajo':
+      return verdeOscuro;
+    case 'medio':
+      return amarilloIntenso;
+    case 'lleno':
+      return rojoIntenso;
+    default:
+      return Colors.grey;
+  }
+}
+
+String getImagenByDisponibilidad(String disponibilidad) {
+  switch (disponibilidad) {
+    case 'lleno':
+      return "assets/images/lleno.jpg";
+    case 'medio':
+      return "assets/images/medio.jpg";
+    case 'bajo':
+      return "assets/images/vacio.jpg";
+    default:
+      return "assets/images/nodisponible.jpg";
   }
 }
