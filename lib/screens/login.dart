@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_app/screens/menu_estacionamientos.dart';
+import 'package:frontend_app/screens/perfil.dart';
 import 'package:frontend_app/utils/colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,16 +35,41 @@ class _LoginPageState extends State<LoginPage> {
           ),
           ListView(
             children: [
-              Container(
-                width: screenWidth,
-                height: (screenHeight / 9) * 4,
-                decoration: const BoxDecoration(
-                  color: amarilloUdec,
-                ),
-                child: Image.asset(
-                  "assets/images/login_image.png",
-                  fit: BoxFit.fill,
-                ),
+              Stack(
+                children: [
+                  Container(
+                    width: screenWidth,
+                    height: (screenHeight / 9) * 4,
+                    decoration: const BoxDecoration(
+                      color: amarilloUdec,
+                    ),
+                    child: Image.asset(
+                      "assets/images/login_image.png",
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                   Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Perfil()),
+                            );
+                          },
+                          child: Icon(
+                            Icons.info_outline,
+                            size: screenHeight/20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
               Container(
                 height: 4,
@@ -84,10 +110,10 @@ class _LoginPageState extends State<LoginPage> {
                             height: 40,
                             child: TextField(
                               controller: _emailController,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white, // Color de la letra deseado
                               ),
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.white), // Color de la línea de borde al estar seleccionado
                                 ),
@@ -114,10 +140,10 @@ class _LoginPageState extends State<LoginPage> {
                             height: 40,
                             child: TextField(
                               controller: _passwordController,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white, // Color de la letra deseado
                               ),
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.white), // Color de la línea de borde al estar seleccionado
                                 ),
@@ -153,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(
                         height: 50,
                       ),
-                      Row(
+                      const Row(
                         children: [
                           Text(
                             "Estacionamientos",

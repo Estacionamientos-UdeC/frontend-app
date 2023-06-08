@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_app/screens/cantidad.dart';
 import 'package:frontend_app/utils/colors.dart';
 
 class CardEstacion extends StatelessWidget {
@@ -57,15 +58,23 @@ class CardEstacion extends StatelessWidget {
                   SizedBox(
                     width: screenWidth,
                     // height: (screenHeight/4.8)/2,
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        topRight: Radius.circular(25),
-                      ),
-                      child: Image.asset(
-                        getImagenByDisponibilidad(disponibilidad),
-                        fit: BoxFit.cover,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Cantidad(nombre:nombre,ubicacion: ubicacion)),
+                        );
+                      },
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25),
                         ),
+                        child: Image.asset(
+                          getImagenByDisponibilidad(disponibilidad),
+                          fit: BoxFit.cover,
+                          ),
+                      ),
                     ),
                   ),
                   Stack(

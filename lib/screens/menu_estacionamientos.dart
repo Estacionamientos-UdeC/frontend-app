@@ -13,8 +13,20 @@ class _MenuEstacionamientosState extends State<MenuEstacionamientos> {
   final List<CardEstacion> cards = [
     CardEstacion(nombre:'Estacionamiento N.º 1 Pinacoteca',ubicacion:'Lorenzo Arenas 123456',disponibilidad:'bajo',favorito: true),
     CardEstacion(nombre:'Estacionamiento N.º 2 Pinacoteca',ubicacion:'Lorenzo Arenas 123457',disponibilidad:'lleno',favorito: false),
-    CardEstacion(nombre:'Estacionamiento N.º 3 Pinacoteca',ubicacion:'Lorenzo Arenas 123458',disponibilidad:'no disponible',favorito: true),
-    CardEstacion(nombre:'Estacionamiento N.º 4 Pinacoteca',ubicacion:'Lorenzo Arenas 123459',disponibilidad:'medio',favorito: false),
+    CardEstacion(nombre:'Estacionamiento Biblioteca Central',ubicacion:'Lorenzo Arenas 987654',disponibilidad:'no disponible',favorito: true),
+    CardEstacion(nombre:'Facultad de Ingenieria',ubicacion:'Lorenzo Arenas 1313',disponibilidad:'medio',favorito: false),
+    CardEstacion(nombre:'Estacionamiento N.º 1 Pinacoteca',ubicacion:'Lorenzo Arenas 123456',disponibilidad:'bajo',favorito: true),
+    CardEstacion(nombre:'Estacionamiento N.º 2 Pinacoteca',ubicacion:'Lorenzo Arenas 123457',disponibilidad:'lleno',favorito: false),
+    CardEstacion(nombre:'Estacionamiento Biblioteca Central',ubicacion:'Lorenzo Arenas 987654',disponibilidad:'no disponible',favorito: true),
+    CardEstacion(nombre:'Facultad de Ingenieria',ubicacion:'Lorenzo Arenas 1313',disponibilidad:'medio',favorito: false),
+    CardEstacion(nombre:'Estacionamiento N.º 1 Pinacoteca',ubicacion:'Lorenzo Arenas 123456',disponibilidad:'bajo',favorito: true),
+    CardEstacion(nombre:'Estacionamiento N.º 2 Pinacoteca',ubicacion:'Lorenzo Arenas 123457',disponibilidad:'lleno',favorito: false),
+    CardEstacion(nombre:'Estacionamiento Biblioteca Central',ubicacion:'Lorenzo Arenas 987654',disponibilidad:'no disponible',favorito: true),
+    CardEstacion(nombre:'Facultad de Ingenieria',ubicacion:'Lorenzo Arenas 1313',disponibilidad:'medio',favorito: false),
+    CardEstacion(nombre:'Estacionamiento N.º 1 Pinacoteca',ubicacion:'Lorenzo Arenas 123456',disponibilidad:'bajo',favorito: true),
+    CardEstacion(nombre:'Estacionamiento N.º 2 Pinacoteca',ubicacion:'Lorenzo Arenas 123457',disponibilidad:'lleno',favorito: false),
+    CardEstacion(nombre:'Estacionamiento Biblioteca Central',ubicacion:'Lorenzo Arenas 987654',disponibilidad:'no disponible',favorito: true),
+    CardEstacion(nombre:'Facultad de Ingenieria',ubicacion:'Lorenzo Arenas 1313',disponibilidad:'medio',favorito: false),
   ];
   @override
   Widget build(BuildContext context) {
@@ -31,7 +43,7 @@ class _MenuEstacionamientosState extends State<MenuEstacionamientos> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                 Text('Estacionaminetos',
+                 Text('Estacionamientos',
                   style: TextStyle(
                      color: Colors.white,
                   ),
