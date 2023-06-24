@@ -4,6 +4,10 @@ import 'package:frontend_app/screens/menu_estacionamientos.dart';
 import 'package:frontend_app/utils/colors.dart';
 import 'dart:math';
 import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+
 
 class Cantidad extends StatefulWidget {
   const Cantidad({Key? key, required this.nombre, required this.ubicacion}) : super(key: key);
@@ -28,6 +32,34 @@ class _CantidadState extends State<Cantidad> {
     obtenerFechaHoraActual();
   }
 
+  Future<void> _fetchData() async {
+  try {
+    final response = await http.get(
+      Uri.parse('https://6496769383d4c69925a2cf2f.mockapi.io/test/numbers/'),
+    );
+
+    if (response.statusCode == 200) {
+      final jsonResponse = json.decode(response.body);
+
+      if (jsonResponse is List && jsonResponse.isNotEmpty) {
+        final firstItem = jsonResponse.first;
+        final id = firstItem['id'];
+
+        setState(() {
+          cantidad = int.parse(id);
+        });
+      } else {
+        print('La respuesta JSON no es una lista o está vacía');
+      }
+    } else {
+      print('Error en la solicitud: ${response.statusCode}');
+    }
+  } catch (e) {
+    print('Error: $e');
+  }
+}
+
+
   Future<void> obtenerFechaHoraActual() async {
     fechaActual = DateTime.now();
     horaActual = DateFormat.Hm().format(fechaActual);
@@ -35,17 +67,18 @@ class _CantidadState extends State<Cantidad> {
   }
   
   Future<void> _refreshData() async {
+     await _fetchData();
     // Aquí puedes realizar cualquier tarea de recarga de datos
     // Por ejemplo, puedes llamar a una API para obtener datos actualizados
     // o reiniciar valores en tu estado interno
     
     // Espera simulada de 2 segundos (puedes eliminar esto en tu implementación)
     await Future.delayed(Duration(seconds: 2));
-    Random random = Random();
-    int nuevoNumero = random.nextInt(34) + 1;
+    // Random random = Random();
+    // int nuevoNumero = random.nextInt(34) + 1;
     // Después de completar la tarea de recarga, llama a setState para reconstruir la vista
     setState(() {
-      cantidad=nuevoNumero;
+      // cantidad=nuevoNumero;
       obtenerFechaHoraActual();
       // Actualiza el estado necesario
     });
@@ -256,7 +289,7 @@ class _CantidadState extends State<Cantidad> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
-                          padding: const EdgeInsets.all(30)),
+                          padding: const EdgeInsets.all(10)),
                       child: const Icon(
                         Icons.home,
                         size: 50,
